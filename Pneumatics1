@@ -1,0 +1,6 @@
+Solenoid armSol = new Solenoid(7,4); //creates a Solenoid object in slot 7, channel 4.
+
+armSol.set(true); //turns the Solenoid on
+
+Compressor aCompressor = new Compressor(1,1); //create a compressor with the default slots and relay and pressure switch channels 1 and 1.
+aCompressor.start(); //start the compressor.
