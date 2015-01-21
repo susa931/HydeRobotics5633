@@ -1,0 +1,59 @@
+package edu.wpi.first.wpilibj.templates;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Solenoid;
+
+public class Airsystem extends SimpleRobot {
+     private Joystick DriverStick;
+     private AxisCamera camera;                       //defines Axis Camera
+     private Solenoid s1,s2;                             //defines solenoids
+
+     public Airsystem() {
+          DriverStick = new Joystick(1);             // USB port
+          airCompressor = new Compressor(1,1);  //Digtial I/O,Relay
+          airCompressor.start();                        // Start the air compressor
+
+          s1 = new Solenoid(1);                        // Solenoid port
+          s2 = new Solenoid(2);
+     public void autonomous() {
+     }
+     public void operatorControl() {
+          if(DriverStick.getRawButton(1) == true)
+          {
+                s1.set(true);
+                s2.set(false);
+           }
+           if(DriverStick.getRawButton(2) == true)
+           {
+                s1.set(false);
+                s2.set(true);
+            }
+    }
+    }
+    
+    // New compressor code...
+if (airCompressor.getPressureSwitchValue()) {
+airCompressor.setRelayValue(edu.wpi.first.wpilibj. Relay.Value.kOff);
+} else {
+airCompressor.setRelayValue(edu.wpi.first.wpilibj. Relay.Value.kOn);
+}
+
+airCompressor.setRelayValue(edu.wpi.first.wpilibj. Relay.Value.kOff);
+
+Compressor myComp = new Compressor(1,1); //That's all you need
+
+public class Airsystem extends SimpleRobot {
+     private Joystick DriverStick;
+     private AxisCamera camera;                       //defines Axis Camera
+     private Solenoid s1,s2;                             //defines solenoids
+     private Compressor airCompressor;
+
+     public Airsystem() {
+          DriverStick = new Joystick(1);             // USB port
+          airCompressor = new Compressor(1,1);  //Digtial I/O,Relay
+          airCompressor.start();                        // Start the air compressor
+
+          s1 = new Solenoid(1);                        // Solenoid port
+          s2 = new Solenoid(2);
+     }
